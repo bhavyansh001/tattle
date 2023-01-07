@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+# Tattle
+
+Tattle is a webapp where you can publish public articles viewable by the tattle registered users.

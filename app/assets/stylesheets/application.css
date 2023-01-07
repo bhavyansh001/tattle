@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @import "./actiontext.css";
+
+ .card-body {
+    max-height: 30vh;
+    overflow-y: hidden;
+ }
