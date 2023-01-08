@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "users", to: "devise/sessions#new"
   end
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 end

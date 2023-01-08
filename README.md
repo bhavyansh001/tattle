@@ -24,4 +24,6 @@ Things you may want to cover:
 # Tattle
 
 Tattle is a webapp where you can publish public articles viewable by the tattle registered users.
-The articles are encrypted and can only be deleted by the user who has written them.
+The articles can only be deleted by the user who has written them.
+
+Added commenting functionality on articles, deletable by the user who has written the comment or the user who has written the article.

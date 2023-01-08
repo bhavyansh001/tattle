@@ -4,7 +4,9 @@ class ArticlesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.order('created_at DESC')
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: true)
   end
 
   def new
@@ -22,6 +24,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @comments = @article.comments
   end
 
   def edit
