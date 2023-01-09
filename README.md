@@ -23,6 +23,8 @@ Things you may want to cover:
 
 # Tattle
 
+Articles section
+
 Tattle is a webapp where you can publish public articles viewable by the tattle registered users.
 The articles can only be deleted by the user who has written them.
 
