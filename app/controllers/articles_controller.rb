@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.order('created_at DESC')
+    @articles = Article.all
     @q = Article.ransack(params[:q])
     @articles = @q.result(distinct: true)
   end
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   end
   def set_article
     @article = Article.find(params[:id])
-    @article_user = @article.user.email.split('@')[0]
+    @article_user = @article.user.username
   end
   def article_params
     params.require(:article).permit(:title, :body)

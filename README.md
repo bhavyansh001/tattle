@@ -29,3 +29,5 @@ Tattle is a webapp where you can publish public articles viewable by the tattle 
 The articles can only be deleted by the user who has written them.
 
 Added commenting functionality on articles, deletable by the user who has written the comment or the user who has written the article.
+
+Added admin controller with a 'username' function that derives the username from email, later will make it customizable.
