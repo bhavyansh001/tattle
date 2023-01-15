@@ -1,0 +1,27 @@
+<h1>Rooms#index</h1>
+<p>Find me in app/views/rooms/index.html.erb</p>
+<p>You are: <%= image_tag(current_user.avatar_thumbnail) %><%= current_user.username %><br></p>
+<div class="container">
+  <div class="row">
+    <div class="col-4 vl">
+      <h4>Users on tattle:</h4>
+      <%= turbo_stream_from "users" %>
+      <div id="users">
+        <%= render @users %>
+      </div>
+    </div>
+    <div class="col-8">
+      <% if @single_room %>
+        <div id="single_room">
+          <h4 class= "text-center" ><%= @user&.email || @single_room.name %></h4>
+          <%= turbo_stream_from @single_room %>
+          <div id="messages">
+            <%= render @messages %>
+          </div>
+          <%= render 'layouts/new_message_form' %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

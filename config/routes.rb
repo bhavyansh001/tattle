@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   root 'home#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -9,5 +10,8 @@ Rails.application.routes.draw do
   end
   get '/admin', to: 'admin#index', as: 'admin_page'
 
-  get 'chat/show', as: 'chats'
+  resources :rooms do
+    resources :messages
+  end
+  get 'user/:id', to: 'users#show', as: 'user'
 end

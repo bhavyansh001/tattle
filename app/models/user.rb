@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create_commit {broadcast_append_to "users"}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,6 +7,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one_attached :avatar
+  has_many :messages
 
   VALID_STATUSES = ['public', 'private']
   validates :status, inclusion: { in: VALID_STATUSES }
@@ -21,6 +23,7 @@ class User < ApplicationRecord
   def avatar_thumbnail
     avatar.variant(resize_to_limit: [30, 30]).processed
   end
+
 
  private
   def add_default_avatar

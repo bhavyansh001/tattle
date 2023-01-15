@@ -19,12 +19,19 @@
     max-height: 28vh;
     overflow-y: hidden;
  }
-
 .box {
    border: 1px solid black;
 }
-
 .vl {
    border-right: 1px solid black;
-   max-height: 500px;
- }
+   height: 300px;
+}
+.msg-content {
+   width: 80%;
+   margin-right: 5px;
+}
+.msg-form {
+   width: 100%;
+   height: 56px;
+   padding: 10px;
+}
