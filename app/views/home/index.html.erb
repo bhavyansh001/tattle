@@ -3,7 +3,29 @@
   <%= link_to "Hey Admin", admin_page_path, class: "btn btn-primary" %>
 <% end %>
 <p>Hii this is Tattle. You are most welcome here.</p>
-<br><br>
+
+<% if user_signed_in? %>
+  <p>You are: <%= image_tag(current_user.avatar_thumbnail) %> <%= current_user.username %></p>  
+<% end %>
 
 <h2>Services Tattle Offers-</h2>
-<%= render 'sections' %>
+  <div class="card">
+    <div class="card-body">
+      <h2>Articles</h2>
+      <p>Got something worth sharing? Pour your brain out in this section!</p>
+      <% if user_signed_in? %>
+        <%= link_to 'Articles', articles_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div><br>
+
+  <div class="card">
+    <div class="card-body">
+      <h2>Chat room</h2>
+      <p>Discover public profiles on tattle and message them in real-time.</p>
+      <% if user_signed_in? %>
+        <%= link_to 'Chat room', root_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div><br>
+

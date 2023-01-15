@@ -19,3 +19,7 @@
     max-height: 28vh;
     overflow-y: hidden;
  }
+
+.box {
+   border: 1px solid black;
+}
