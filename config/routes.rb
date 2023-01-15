@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :comments
   end
   get '/admin', to: 'admin#index', as: 'admin_page'
+
+  get 'chat/show', as: 'chats'
 end

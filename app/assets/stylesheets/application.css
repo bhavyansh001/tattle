@@ -23,3 +23,8 @@
 .box {
    border: 1px solid black;
 }
+
+.vl {
+   border-right: 1px solid black;
+   max-height: 500px;
+ }

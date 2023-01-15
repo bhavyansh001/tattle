@@ -6,8 +6,12 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one_attached :avatar
+
+  VALID_STATUSES = ['public', 'private']
+  validates :status, inclusion: { in: VALID_STATUSES }
   
   scope :all_except, -> (user) { where.not(id: user.id)}
+  scope :all_public, -> { where(status: 'public')}
 
   after_commit :add_default_avatar, on: [:create, :update]
   def username

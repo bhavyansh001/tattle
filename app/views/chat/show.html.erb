@@ -1,0 +1,15 @@
+<h1>Chat#show</h1>
+<p>Find me in app/views/chat/show.html.erb</p>
+<p>You are: <%= image_tag(current_user.avatar_thumbnail) %><%= current_user.username %><br></p>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h4>Users on tattle:</h4>
+      <%= render 'chat/users' %>
+      <p class= "vl"></p>
+    </div>
+    <div class="col-8">
+      Column
+    </div>
+  </div>
+</div>
