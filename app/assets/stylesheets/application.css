@@ -22,10 +22,6 @@
 .box {
    border: 1px solid black;
 }
-.vl {
-   border-right: 1px solid black;
-   height: 300px;
-}
 .msg-content {
    width: 80%;
    margin-right: 5px;
@@ -34,4 +30,10 @@
    width: 100%;
    height: 56px;
    padding: 10px;
+}
+#messages {
+   overflow-y: auto;
+   height: 300px;
+   border-left: 1px solid black;
+   padding-left: 30px;
 }
