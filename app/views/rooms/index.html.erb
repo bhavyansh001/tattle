@@ -1,19 +1,16 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+<h1>Chat room</h1>
+<p>Welcome to the chat room provided by tattle! You can dm your friends in realtime using this. This feature can be used to let people know what you liked about their article and also suggest edits.</p>
 <p>You are: <%= image_tag(current_user.avatar_thumbnail) %><%= current_user.username %><br></p>
 <div class="container">
   <div class="row">
     <div class="col-4">
       <h4>Users on tattle:</h4>
-      <%= turbo_stream_from "users" %>
-      <div id="users">
         <%= render @users %>
-      </div>
     </div>
     <div class="col-8">
       <% if @single_room %>
         <div id="single_room">
-          <h4 class= "text-center" ><%= @user&.email || @single_room.name %></h4>
+          <h4 class= "text-center" ><%= @user.username || @single_room.name %></h4>
           <%= turbo_stream_from @single_room %>
           <div id="messages" data-controller= "scroll">
             <%= render @messages %>
