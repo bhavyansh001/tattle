@@ -1,4 +1,5 @@
 <% @articles.each do |article| %>
+ <%= cache article do %>
   <div class="card">
     <div class="card-body" id= "short-card">
       <h2><%= article.title %></h2>
@@ -6,4 +7,5 @@
     </div>
       <%= link_to "Read further on '#{article.title}'", article_path(article), class: "btn btn-primary" %>
   </div><br>
+ <% end %>
 <% end %>
