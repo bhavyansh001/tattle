@@ -19,3 +19,6 @@
   <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-primary" %>
   <%= link_to 'Delete post', article_path(@article), class: "btn btn-danger", data: {turbo_method: :delete} %>
 <% end %>
+<% if current_user.is_admin %>
+  <%= link_to 'Delete post', article_path(@article), class: "btn btn-danger", data: {turbo_method: :delete} %>
+<% end %>

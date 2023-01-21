@@ -50,6 +50,11 @@ class ArticlesController < ApplicationController
   private
   def correct_user
     @user = current_user.articles.find_by(id: params[:id])
+    if @user.nil?
+      if current_user.is_admin
+        @user = current_user
+      end
+    end
     redirect_to articles_path, notice: 'Not authorized to edit this article!' if @user.nil?
   end
   def set_article

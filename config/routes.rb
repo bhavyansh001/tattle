@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   get '/admin', to: 'admin#index', as: 'admin_page'
+  get '/admin/:id', to: 'admin#show', as: 'admin_show'
 
   resources :rooms do
     resources :messages

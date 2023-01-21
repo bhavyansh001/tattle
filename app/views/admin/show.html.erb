@@ -1,0 +1,4 @@
+<h3>Articles by <%= @user.username %></h3>
+<% @user.articles.each do |article| %>
+    <%= link_to article.title, article %>
+<% end %>
