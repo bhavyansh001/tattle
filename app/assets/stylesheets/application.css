@@ -37,3 +37,20 @@
    border-left: 1px solid black;
    padding-left: 30px;
 }
+.footer {
+   background-color: #353A3D;
+   color: white;
+   position: relative;
+   bottom: 0;
+   width: 100%;
+}
+.footer a {
+   color: white;
+   text-decoration: none;
+}
+.vl {
+   border-left: 1px solid white;
+}
+.nav-bg {
+   background-color: rgb(90, 228, 150);
+}
