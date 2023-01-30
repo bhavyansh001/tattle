@@ -19,10 +19,10 @@ class UsersController < ApplicationController
   def set_room
     @room_name = get_name(@user, current_user)
     unless @single_room
-      @single_room = Room.where(name: @room_name).first
-    else
       @single_room = Room.create_private_room(@user, current_user, @room_name)
     end
+    @single_room = Room.where(name: @room_name).first
+    
   end
   def set_messages
     @message = Message.new

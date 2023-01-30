@@ -16,9 +16,11 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
     @article.user_id = current_user.id
     if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to @article,
+      notice: 'Article was successfully created.'
     else
-      render :new, status: :unprocessable_entity, notice: 'Article could not be created'
+      render :new, status: :unprocessable_entity,
+      notice: 'Article could not be created'
     end
   end
 
@@ -31,15 +33,18 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article,  notice: 'Article was successfully updated.'
+      redirect_to @article,
+      notice: 'Article was successfully updated.'
     else
-      render :edit, status: :unprocessable_entity, notice: 'Article could not be updated.'
+      render :edit, status: :unprocessable_entity,
+      notice: 'Article could not be updated.'
     end
   end
 
   def destroy
     if @article.destroy
-      redirect_to articles_path, status: :see_other, notice: 'Article was successfully deleted.'
+      redirect_to articles_path, status: :see_other,
+      notice: 'Article was successfully deleted.'
     else
       render @article, notice: 'Article could not be deleted.'
     end
@@ -53,7 +58,8 @@ class ArticlesController < ApplicationController
         @user = current_user
       end
     end
-    redirect_to articles_path, notice: 'Not authorized to edit this article!' if @user.nil?
+    redirect_to articles_path,
+    notice: 'Not authorized to edit this article!' if @user.nil?
   end
   def set_article
     @article = Article.find(params[:id])

@@ -16,7 +16,8 @@ class AdminController < ApplicationController
   private
   def check_if_admin
     return if current_user.is_admin
-      redirect_to root_path, notice: 'You are not allowed to access this page'
+      redirect_to root_path,
+      notice: 'You are not allowed to access this page'
   end
   def set_articles_comments
     @articles = Article.all

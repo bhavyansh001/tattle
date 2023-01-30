@@ -6,16 +6,19 @@ class CommentsController < ApplicationController
     @comment = @article.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to article_path(@article), notice: "Comment added"
+      redirect_to article_path(@article),
+      notice: "Comment added"
     else
-      redirect_to article_path(@article), notice: "Couldn't create comment"
+      redirect_to article_path(@article),
+      notice: "Couldn't create comment"
     end
   end
   
   def destroy
     @comment = @article.comments.find(params[:id])
     @comment.destroy
-    redirect_to article_path(@article), notice: "Comment deleted"
+    redirect_to article_path(@article),
+    notice: "Comment deleted"
   end
   
   private

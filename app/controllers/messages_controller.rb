@@ -1,7 +1,9 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
     def create
-        @message = current_user.messages.create(body: message_params[:body], room_id: params[:room_id])
+        @message = current_user.messages.create(
+            body: message_params[:body], room_id: params[:room_id]
+        )
     end
 
     private
