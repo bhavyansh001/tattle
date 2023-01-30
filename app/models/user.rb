@@ -15,6 +15,7 @@ class User < ApplicationRecord
   scope :all_public, -> { where(status: 'public')}
 
   after_commit :add_default_avatar, on: [:create, :update]
+
   def username
     self.email.split('@')[0].capitalize
   end
@@ -23,16 +24,13 @@ class User < ApplicationRecord
     avatar.variant(resize_to_limit: [30, 30]).processed
   end
 
-
  private
   def add_default_avatar
     return if avatar.attached?
-
     avatar.attach(
       io: File.open(Rails.root.join('app', 'assets', 'images', 'default_avatar.png')),
       filename: 'default_avatar.png',
       content_type: 'image/png'
     )
   end
-
 end

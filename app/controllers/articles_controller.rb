@@ -2,11 +2,10 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :ransack_query, only: [:index]
 
   def index
     @articles = Article.all
-    @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: true)
   end
 
   def new
@@ -29,9 +28,8 @@ class ArticlesController < ApplicationController
 
   def edit
   end
-  
+
   def update
-    
     if @article.update(article_params)
       redirect_to @article,  notice: 'Article was successfully updated.'
     else
@@ -61,8 +59,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article_user = @article.user.username
   end
+  def ransack_query
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: true)
+  end
   def article_params
     params.require(:article).permit(:title, :body)
   end
-
 end

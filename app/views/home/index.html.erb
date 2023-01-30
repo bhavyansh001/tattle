@@ -1,5 +1,5 @@
 <h1>Welcome to Tattle</h1>
-<% if user_signed_in? && current_user.is_admin? %>
+<% if user_signed_in? && current_user.is_admin %>
   <%= link_to "Hey Admin", admin_page_path, class: "btn btn-primary" %>
 <% end %>
 <p>Hii this is Tattle. You are most welcome here.</p>

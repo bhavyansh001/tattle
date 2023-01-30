@@ -1,9 +1,10 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_data, only: [:index, :show]
+  before_action :set_data
 
   def index
   end
+  
   def show
     @single_room = Room.find(params[:id])
     render :index
