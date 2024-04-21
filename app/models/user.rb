@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :confirmable
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one_attached :avatar
@@ -10,7 +11,7 @@ class User < ApplicationRecord
 
   VALID_STATUSES = ['public', 'private']
   validates :status, inclusion: { in: VALID_STATUSES }
-  
+
   scope :all_except, -> (user) { where.not(id: user.id)}
   scope :all_public, -> { where(status: 'public')}
 

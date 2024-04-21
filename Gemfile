@@ -16,7 +16,10 @@ gem "bootsnap", require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'ransack', '~> 3.2', '>= 3.2.1'
 gem "image_processing", "~> 1.2"
-
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
