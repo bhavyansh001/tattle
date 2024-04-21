@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
 
   def index
   end
-  
+
   def show
     @single_room = Room.find(params[:id])
     render :index
