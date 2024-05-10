@@ -1,31 +1,77 @@
-<h1>Welcome to Tattle</h1>
-<% if user_signed_in? && current_user.is_admin %>
-  <%= link_to "Hey Admin", admin_page_path, class: "btn btn-primary" %>
-<% end %>
-<p>Hii this is Tattle. You are most welcome here.</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Welcome to Tattle</title>
+  </head>
 
-<% if user_signed_in? %>
-  <p>You are: <%= image_tag(current_user.avatar_thumbnail) %> <%= current_user.username %></p>  
-<% end %>
+  <body>
+    <div class="container" id="container">
+      <div class="form-container sign-up">
+        <form>
+          <h1>Create Account</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-google-plus-g"></i
+            ></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button><%= link_to "Sign Up", new_user_registration_path %></button>
 
-<h2>What Tattle Offers-</h2>
-  <!--<div class="card">
-    <div class="card-body">
-      <h2>Articles</h2>
-      <p>Got something worth sharing? Pour your brain out in this section!</p>
-      <% if user_signed_in? %>
-        <%= link_to 'Articles', articles_path, class: "btn btn-primary" %>
-      <% end %>
+        </form>
+      </div>
+      <div class="form-container sign-in">
+        <form>
+          <h1>Sign In</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-google-plus-g"></i
+            ></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+          <span>or use your email password</span>
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <a href="#">Forget Your Password?</a>
+          <button> <%= link_to "Sign in", new_user_session_path%></button>
+        </form>
+      </div>
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>Hello, Friend!</h1>
+            <p>Register with your personal details to use all of site features</p>
+            <button class="hidden" id="login">Sign In</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <h1>Welcome Back!</h1>
+            <p>
+            Enter your personal details to use all of site features
+            </p>
+            <button class="hidden" id="register">Sign Up</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div><br>-->
 
-  <div class="card">
-    <div class="card-body">
-      <h2>Chat room</h2>
-      <p>Discover public profiles on tattle and message in realtime.</p>
-      <% if user_signed_in? %>
-        <%= link_to 'Chat room', rooms_path, class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div><br>
-
+    <script src="index.js"></script>
+  </body>
+</html>

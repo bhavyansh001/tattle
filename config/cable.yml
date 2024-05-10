@@ -5,7 +5,4 @@ development:
 test:
   adapter: test
 
-production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") %>/<%= ENV.fetch("REDIS_DB") %>
-  channel_prefix: tattle_production
+
