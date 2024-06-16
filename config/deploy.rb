@@ -2,8 +2,8 @@
 lock "~> 3.18.1"
 
 set :application, "tattle"
-set :repo_url, "git@github.com:bhavyansh001/tattle.git"
-set :branch, 'main'
+set :repo_url, "https://github.com/bhavyansh001/tattle"
+set :branch, 'deploy_aws'
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
